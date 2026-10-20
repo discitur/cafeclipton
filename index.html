@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Especial - Tu Cafetería</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            yellow: '#f9b936', /* Amarillo principal del diseño */
+                            dark: '#1b1411',   /* Marrón muy oscuro para fondos */
+                            medium: '#2c1e16', /* Marrón medio para secciones */
+                            light: '#3e2a1e',  /* Marrón claro para formularios/tarjetas */
+                            red: '#c82626',    /* Rojo para precios y botones */
+                            text: '#4a3320'    /* Marrón para texto sobre amarillo */
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Alfa Slab One"', 'cursive'], /* Títulos gruesos */
+                        serif: ['"Playfair Display"', 'serif'],   /* Títulos elegantes */
+                        sans: ['"Inter"', 'sans-serif']           /* Texto general */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados adicionales */
+        .text-shadow-sm { text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+        .text-shadow-md { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        
+        /* Ocultar barra de desplazamiento para un look más limpio */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1b1411; }
+        ::-webkit-scrollbar-thumb { background: #f9b936; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d99b20; }
+    </style>
+</head>
+<body class="font-sans antialiased bg-brand-dark text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-yellow text-brand-dark shadow-md" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fa-solid fa-mug-hot text-2xl mr-2"></i>
+                    <span class="font-display text-2xl tracking-wider">LOGO</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center font-semibold text-sm uppercase tracking-wide">
+                    <a href="#inicio" class="hover:text-brand-red transition-colors">Inicio</a>
+                    <a href="#productos" class="hover:text-brand-red transition-colors">Productos</a>
+                    <a href="#blog" class="hover:text-brand-red transition-colors">Blog</a>
+                    <a href="#contactar" class="hover:text-brand-red transition-colors">Contactar</a>
+                    <button class="ml-4 hover:text-brand-red"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-red focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-yellow pb-4 px-4 shadow-inner">
+            <div class="flex flex-col space-y-3 font-semibold text-center uppercase">
+                <a href="#inicio" class="block py-2 hover:bg-amber-300 rounded">Inicio</a>
+                <a href="#productos" class="block py-2 hover:bg-amber-300 rounded">Productos</a>
+                <a href="#blog" class="block py-2 hover:bg-amber-300 rounded">Blog</a>
+                <a href="#contactar" class="block py-2 hover:bg-amber-300 rounded">Contactar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- INICIO: Hero Section (Yellow Background) -->
+    <section id="inicio" class="pt-20 bg-brand-yellow min-h-[90vh] flex items-center relative overflow-hidden">
+        <!-- Elementos decorativos (Granos de café fondo) -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12 py-16">
+                <!-- Text Content -->
+                <div class="w-full md:w-1/2 text-brand-dark space-y-6 text-center md:text-left">
+                    <h1 class="font-display text-6xl md:text-7xl lg:text-8xl leading-tight uppercase text-shadow-md">
+                        Special <br> <span class="text-brand-text">Coffee</span>
+                    </h1>
+                    <p class="font-sans text-brand-text font-medium text-lg max-w-md mx-auto md:mx-0">
+                        El café es un arte aquí, una filosofía en nuestra taza. Cada sorbo es un viaje, un momento para saborear nuestra vida.
+                    </p>
+                    <button class="bg-brand-dark text-white uppercase font-bold text-sm px-8 py-4 rounded hover:bg-black transition-colors shadow-lg mt-4 inline-block tracking-widest">
+                        Descubre Más
+                    </button>
+                </div>
+                
+                <!-- Image Content -->
+                <div class="w-full md:w-1/2 relative flex justify-center mt-10 md:mt-0">
+                    <!-- Red Badge -->
+                    <div class="absolute top-0 left-0 md:left-10 bg-brand-red text-white w-24 h-24 rounded-full flex flex-col items-center justify-center shadow-xl transform -rotate-12 z-20 border-4 border-brand-yellow">
+                        <span class="font-display text-2xl">S/ 15</span>
+                        <span class="text-xs font-bold uppercase">Solo</span>
+                    </div>
+                    <!-- Coffee Cup Image -->
+                    <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full bg-white/20 flex items-center justify-center p-4 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Taza de Café Especial" class="w-full h-full object-cover rounded-full shadow-inner border-8 border-white">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER MEDIO: Instant Coffee (Dark Background) -->
+    <section class="bg-brand-dark py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <!-- Image Side -->
+                <div class="w-full md:w-1/2 relative flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Granos de Café" class="w-64 h-80 object-cover rounded-xl shadow-2xl z-10 border border-brand-light">
+                    <!-- Decoración circular oscura -->
+                    <div class="absolute w-72 h-72 bg-brand-medium rounded-full -z-0 blur-xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                </div>
+                <!-- Text Side -->
+                <div class="w-full md:w-1/2 space-y-6 text-center md:text-left text-white mt-8 md:mt-0">
+                    <h4 class="text-brand-yellow font-bold tracking-widest uppercase">Quiénes Somos</h4>
+                    <h2 class="font-serif text-5xl italic font-bold">Premium Coffee</h2>
+                    <div class="bg-brand-medium inline-block px-4 py-1 border border-brand-yellow text-brand-yellow font-bold uppercase tracking-widest text-sm rounded">
+                        Aroma Intenso
+                    </div>
+                    <p class="text-gray-300 leading-relaxed font-light mt-4">
+                        Como dedicados artesanos del café, seleccionamos meticulosamente los mejores granos para tostar y preparar a la perfección. Cada taza revela una sinfonía de sabores ricos y aromas que elevan tu experiencia diaria con el café a alturas extraordinarias. Un buen día comienza con un buen café.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS: Product List (Yellow Top, Dark Bottom) -->
+    <section id="productos" class="pt-20">
+        <!-- Encabezado de Productos -->
+        <div class="bg-brand-medium py-8 border-b-8 border-brand-dark">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h2 class="font-display text-3xl text-white uppercase tracking-widest">Nuestra Carta de Café</h2>
+            </div>
+        </div>
+
+        <!-- Lista de Productos -->
+        <div class="bg-brand-yellow py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    
+                    <!-- Producto 1 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="relative w-48 h-48 mb-6 overflow-hidden rounded-full border-4 border-white shadow-xl bg-white transition-transform duration-300 group-hover:scale-105">
+                            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Café Espresso" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-display text-2xl text-brand-dark mb-2">Espresso Puro</h3>
+                        <p class="text-brand-text mb-6 text-sm px-4">Concentrado y potente. Extraído a la perfección para los amantes del sabor fuerte.</p>
+                        <!-- BOTÓN COMPRAR WSP -->
+                        <a href="https://wa.me/51974372574?text=Hola,%20me%20gustaría%20ordenar%20un%20Espresso%20Puro." target="_blank" class="bg-brand-red text-white uppercase font-bold text-sm px-8 py-3 rounded shadow-lg hover:bg-red-800 transition-colors w-full md:w-auto tracking-widest">
+                            Comprar Ahora
+                        </a>
+                    </div>
+
+                    <!-- Producto 2 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="relative w-48 h-48 mb-6 overflow-hidden rounded-full border-4 border-white shadow-xl bg-white transition-transform duration-300 group-hover:scale-105">
+                            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Capuchino" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-display text-2xl text-brand-dark mb-2">Capuchino</h3>
+                        <p class="text-brand-text mb-6 text-sm px-4">Equilibrio perfecto entre espresso, leche vaporizada y una rica capa de espuma de leche.</p>
+                        <!-- BOTÓN COMPRAR WSP -->
+                        <a href="https://wa.me/51974372574?text=Hola,%20me%20gustaría%20ordenar%20un%20Capuchino." target="_blank" class="bg-brand-red text-white uppercase font-bold text-sm px-8 py-3 rounded shadow-lg hover:bg-red-800 transition-colors w-full md:w-auto tracking-widest">
+                            Comprar Ahora
+                        </a>
+                    </div>
+
+                    <!-- Producto 3 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="relative w-48 h-48 mb-6 overflow-hidden rounded-full border-4 border-white shadow-xl bg-white transition-transform duration-300 group-hover:scale-105">
+                            <img src="https://images.unsplash.com/photo-1553909489-cd47cebeaa53?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Latte Macchiato" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-display text-2xl text-brand-dark mb-2">Latte Macchiato</h3>
+                        <p class="text-brand-text mb-6 text-sm px-4">Leche caliente manchada con un toque de café intenso. Suave, dulce y reconfortante.</p>
+                        <!-- BOTÓN COMPRAR WSP -->
+                        <a href="https://wa.me/51974372574?text=Hola,%20me%20gustaría%20ordenar%20un%20Latte%20Macchiato." target="_blank" class="bg-brand-red text-white uppercase font-bold text-sm px-8 py-3 rounded shadow-lg hover:bg-red-800 transition-colors w-full md:w-auto tracking-widest">
+                            Comprar Ahora
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG: Últimas Noticias -->
+    <section id="blog" class="py-20 bg-brand-medium text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl uppercase tracking-wider mb-4 text-brand-yellow">Nuestro Blog</h2>
+                <p class="text-gray-300 font-light max-w-2xl mx-auto">Descubre el fascinante mundo del café, métodos de preparación, origen de nuestros granos y consejos para disfrutar tu bebida favorita.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Articulo 1 -->
+                <div class="bg-brand-light rounded-lg overflow-hidden shadow-xl flex flex-col sm:flex-row hover:shadow-2xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Granos de Café" class="w-full sm:w-1/3 object-cover h-48 sm:h-auto">
+                    <div class="p-6 flex flex-col justify-center">
+                        <span class="text-brand-yellow text-xs font-bold uppercase tracking-widest mb-2">Guías y Tips</span>
+                        <h3 class="font-serif text-2xl font-bold mb-3">La diferencia entre un tueste claro y oscuro</h3>
+                        <p class="text-gray-400 text-sm mb-4">Aprende a identificar qué tipo de tueste se adapta mejor a tu paladar y cómo influye en la acidez del café...</p>
+                        <a href="#" class="text-brand-yellow hover:text-white transition-colors text-sm font-semibold inline-flex items-center">Leer Más <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+
+                <!-- Articulo 2 -->
+                <div class="bg-brand-light rounded-lg overflow-hidden shadow-xl flex flex-col sm:flex-row hover:shadow-2xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1495474472207-464ba62b1a57?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cafetería" class="w-full sm:w-1/3 object-cover h-48 sm:h-auto">
+                    <div class="p-6 flex flex-col justify-center">
+                        <span class="text-brand-yellow text-xs font-bold uppercase tracking-widest mb-2">Nuestra Historia</span>
+                        <h3 class="font-serif text-2xl font-bold mb-3">Orígenes: De la finca a tu taza diaria</h3>
+                        <p class="text-gray-400 text-sm mb-4">Viajamos a las montañas para traerte los mejores granos. Conoce a los agricultores detrás de nuestra marca...</p>
+                        <a href="#" class="text-brand-yellow hover:text-white transition-colors text-sm font-semibold inline-flex items-center">Leer Más <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTAR: Form & Info (Darkest Background) -->
+    <section id="contactar" class="bg-brand-dark py-20 border-t border-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-12">
+                
+                <!-- Contact Form -->
+                <div class="w-full md:w-1/2">
+                    <h2 class="font-display text-3xl uppercase tracking-wider text-brand-yellow mb-2">Contáctanos</h2>
+                    <p class="text-gray-400 mb-8 text-sm">¿Tienes preguntas sobre pedidos al por mayor, sugerencias o simplemente quieres saludar? Escríbenos.</p>
+                    
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Mensaje enviado (Simulación).');">
+                        <div>
+                            <input type="text" placeholder="Nombre Completo *" required class="w-full bg-brand-light border border-gray-600 text-white rounded px-4 py-3 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow placeholder-gray-500">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Correo Electrónico *" required class="w-full bg-brand-light border border-gray-600 text-white rounded px-4 py-3 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow placeholder-gray-500">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Asunto" class="w-full bg-brand-light border border-gray-600 text-white rounded px-4 py-3 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow placeholder-gray-500">
+                        </div>
+                        <div>
+                            <textarea placeholder="Escribe tu mensaje aquí..." required rows="4" class="w-full bg-brand-light border border-gray-600 text-white rounded px-4 py-3 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow placeholder-gray-500 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="bg-brand-yellow text-brand-dark font-bold uppercase tracking-widest text-sm px-8 py-3 rounded hover:bg-amber-500 transition-colors w-full">
+                            Enviar Correo
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Decorative Image / Info -->
+                <div class="w-full md:w-1/2 flex items-center justify-center relative">
+                    <!-- Usaremos una imagen de un molino de café o taza elegante para acompañar -->
+                    <div class="relative w-full max-w-sm rounded-lg overflow-hidden border-2 border-brand-yellow/30 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1587080413959-06b85d5eca56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Preparación de Café" class="w-full h-full object-cover">
+                        <!-- Overlay gradient oscuro -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                        
+                        <div class="absolute bottom-0 left-0 w-full p-6 text-center">
+                            <h3 class="text-brand-yellow font-serif text-2xl italic font-bold mb-2">Visítanos</h3>
+                            <p class="text-gray-300 text-sm">Av. El Café 123, Distrito Central<br>Lunes - Sábado: 7:00 AM - 9:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-10 text-gray-400 text-sm border-t border-brand-yellow/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-white font-bold uppercase mb-4 tracking-wider">Acerca de</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brand-yellow transition">Historia</a></li>
+                        <li><a href="#" class="hover:text-brand-yellow transition">Misión</a></li>
+                        <li><a href="#" class="hover:text-brand-yellow transition">Ubicación</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase mb-4 tracking-wider">Enlaces Útiles</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="hover:text-brand-yellow transition">Inicio</a></li>
+                        <li><a href="#productos" class="hover:text-brand-yellow transition">Productos</a></li>
+                        <li><a href="#blog" class="hover:text-brand-yellow transition">Blog</a></li>
+                        <li><a href="#contactar" class="hover:text-brand-yellow transition">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-2 md:col-span-2">
+                    <h4 class="text-white font-bold uppercase mb-4 tracking-wider">Atención al Cliente</h4>
+                    <p class="mb-2"><i class="fa-brands fa-whatsapp text-green-500 mr-2"></i> +51 974 372 574</p>
+                    <p><i class="fa-regular fa-envelope mr-2"></i> info@cafeespecial.com</p>
+                    
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 text-center text-xs flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2026 Café Especial. Todos los derechos reservados.</p>
+                <div class="mt-2 md:mt-0 space-x-4">
+                    <a href="#" class="hover:text-white transition">Política de Privacidad</a>
+                    <a href="#" class="hover:text-white transition">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Script para el menú móvil
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
